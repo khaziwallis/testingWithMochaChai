@@ -1,0 +1,25 @@
+<h1>Users Information.</h1>
+
+<div>
+	<table>
+		<thead>
+			<th>
+				<input type="text" ng-model="vm.search" placeholder="Search" />
+			</th>
+		</thead>
+		<thead>
+			<th ng-repeat="title in vm.userHeader" ng-click="vm.sortColumn(title)">
+				{{title}}
+				<i class="glyphicon glyphicon-sort-by-attributes" ng-if="title === vm.sortedColumn"></i>
+			</th>
+		</thead>
+		<body>
+			<tr ng-repeat="user in vm.users | usersFilter:vm.search:vm.headerKeys">
+				<td> {{user.userId}}</td>
+				<td> {{user.id}}</td>
+				<td> {{user.title}}</td>
+				<td> {{user.body}}</td>
+			</tr>
+		</body>
+	</table>
+</div>
